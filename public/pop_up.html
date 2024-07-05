@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Marked</title>
+  <style>
+    body {
+      background-color: #061e41; /* Blue background color */
+      color: #ADD8E6; /* White text color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .popup {
+      background-color: #164790; /* Semi-transparent black background */
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      position: relative; /* Ensure position relative for absolute positioning */
+    }
+    h3 {
+      margin-bottom: 10px;
+    }
+    .close-button {
+      padding: 10px 20px;
+      background-color: #ADD8E6; /* Light blue color */
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .close-button:hover {
+      background-color: #87CEEB; /* Slightly darker light blue for hover effect */
+    }
+  </style>
+</head>
+<body>
+  <div class="popup">
+    <h3>Good Job on Showing Up!</h3>
+    <h3>Your attendance is marked.</h3>
+    <button class="close-button" onclick="closePopup()">Close</button>
+  </div>
+
+  <script>
+    // Function to close the popup and redirect
+    function closePopup() {
+      window.location.href = '/attendance'; // Redirect to the attendance page
+    }
+  </script>
+</body>
+</html>
+

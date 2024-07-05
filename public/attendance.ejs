@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attendance List</title>
+  <style>
+    body {
+      background-color: #061e41; /* Blue background color */
+      margin: 0;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #ADD8E6; /* Light blue color */
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center; /* Align checkboxes and labels vertically */
+      margin-bottom: 5px; /* Space between each checkbox container */
+    }
+    .checkboxes {
+      margin-right: 10px; /* Space between checkboxes */
+    }
+    label {
+      color: white; /* White color for labels */
+    }
+    .button-container {
+      display: flex;
+      justify-content: flex-start; /* Align buttons to the start of the container (left side) */
+      gap: 10px; /* Space between buttons */
+      margin-top: 10px; /* Space between checkboxes and buttons */
+    }
+    .button-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ADD8E6; /* Light blue color */
+      color: rgb(0, 0, 0);
+      text-decoration: none; /* Remove underline from link */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button-link:hover {
+      background-color: #87CEEB; /* Slightly darker light blue for hover effect */
+    }
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #ADD8E6; /* Light blue color */
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #87CEEB; /* Slightly darker light blue for hover effect */
+    }
+  </style>
+</head>
+<body>
+  <h1>Attendance List</h1>
+
+  <form id="deleteForm" action="/deleteAttendance" method="POST" onsubmit="return validateForm()">
+    <% if (items.length > 0) { %>
+      <div class="checkbox-container">
+        <input type="checkbox" id="selectAllCheckbox" name="SelectAll" value="SelectAll" class="checkboxes">
+        <label for="selectAllCheckbox">Select All</label>
+      </div>
+    <% } %>
+
+    <% items.forEach(function(item) { %>
+      <div class="checkbox-container">
+        <input type="checkbox" class="checkboxes" name="dates" value="<%= item %>">
+        <label><%= item %></label>
+      </div>
+    <% }); %>
+
+    <div class="button-container">
+      <a href="/back" class="button-link">Back</a>
+      <% if (items.length > 0) { %>
+        <input type="submit" value="Delete">
+      <% } %>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById('selectAllCheckbox').addEventListener('change', function () {
+      let checkboxes = document.querySelectorAll('.checkboxes');
+      checkboxes.forEach(function (checkbox) {
+        checkbox.checked = this.checked;
+      }, this);
+    });
+
+    function validateForm() {
+      let checkboxes = document.querySelectorAll('.checkboxes');
+      let checked = false;
+
+      checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+          checked = true;
+        }
+      });
+
+      if (!checked) {
+        alert('Please select at least one date to delete.');
+        return false; // Prevent form submission
+      }
+
+      return true; // Allow form submission
+    }
+  </script>
+</body>
+</html>

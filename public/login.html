@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://kit.fontawesome.com/9f32f717be.js" crossorigin="anonymous"></script>
+  <title>Login</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #061e41; /* Blue background color */
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #login {
+      text-align: center;
+    }
+    h1 {
+      color: #ADD8E6; /* Light blue color */
+    }
+    .fa-calendar-check {
+      font-size: 50px;
+      color: #ADD8E6; /* Light blue color */
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 16px;
+      color: rgb(0, 0, 0);
+      background-color: #ADD8E6; /* Light blue color */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .button i {
+      margin-right: 10px;
+    }
+    .button:hover {
+      background-color: #87CEEB; /* Slightly darker light blue for hover effect */
+    }
+  </style>
+</head>
+<body id="login">
+  <div>
+    <i class="fa-solid fa-calendar-check"></i>
+    <h1>Attendance Management System</h1>
+    <a href="/auth/google" class="button">
+      <i class="fa-brands fa-google"></i> Login with Google
+    </a>
+  </div>
+</body>
+</html>

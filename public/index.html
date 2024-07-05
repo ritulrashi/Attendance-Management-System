@@ -1,0 +1,175 @@
+ <!-- <!DOCTYPE html>
+ <html>
+ <head>
+   <title>Attendance</title>
+   <style>
+     body {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100vh;
+       background-color: #061e41; /* Blue background color */
+       margin: 0;
+       font-family: Arial, sans-serif;
+     }
+     .container {
+       text-align: center;
+       max-width: 600px;
+       padding: 20px;
+       background-color: #164790;
+       border-radius: 10px;
+       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+     }
+     h1 {
+       color: #ADD8E6; /* Light blue color */
+     }
+     input[type="date"], input[type="submit"] {
+       padding: 10px;
+       margin: 10px;
+       border: 1px solid #ADD8E6; /* Light blue color */
+       border-radius: 5px;
+     }
+     input[type="submit"] {
+       background-color: #ADD8E6; /* Light blue color */
+       color: rgb(0, 0, 0);
+       cursor: pointer;
+     }
+     form:last-of-type {
+       position: absolute;
+       top: 10px;
+       right: 10px;
+     }
+     label {
+      color: #ADD8E6;
+      size: 20px;
+     }
+   </style>
+ </head>
+ <body>
+   <div class="container">
+     <h1>Mark Your Attendance!</h1>
+ 
+     <form action="/submit" method="POST">
+       <label for="date">Date:</label>
+       <input type="date" id="date" name="date" required>
+       <input type="submit" value="Submit">
+     </form>
+ 
+     <form action="/viewAttendance" method="GET">
+       <input type="submit" value="View Attendance List">
+     </form>
+ 
+     <form action="/logout" method="GET">
+       <input type="submit" value="Logout">
+     </form>
+   </div>
+ 
+   <script src="https://apis.google.com/js/platform.js" async defer></script>
+ 
+   <script>
+     const urlParams = new URLSearchParams(window.location.search);
+     if (urlParams.has('alert')) {
+       const alertType = urlParams.get('alert');
+       if (alertType === 'true') {
+         alert('The selected date must be today or before.');
+       } else if (alertType === 'exists') {
+         alert('Attendance has already been marked for this date.');
+       }
+       // Remove the alert parameter from the URL
+       const url = new URL(window.location);
+       url.searchParams.delete('alert');
+       window.history.replaceState({}, document.title, url);
+     }
+   </script>
+ </body>
+ </html>
+  -->
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Attendance</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #061e41; /* Blue background color */
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        text-align: center;
+        max-width: 600px;
+        padding: 20px;
+        background-color: #164790;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      h1 {
+        color: #ADD8E6; /* Light blue color */
+      }
+      input[type="date"], input[type="submit"] {
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid #ADD8E6; /* Light blue color */
+        border-radius: 5px;
+      }
+      input[type="submit"] {
+        background-color: #ADD8E6; /* Light blue color */
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+      }
+      form:last-of-type {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+      label {
+        color: #ADD8E6;
+        size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mark Your Attendance!</h1>
+  
+      <form action="/submit" method="POST">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+        <input type="submit" value="Submit">
+      </form>
+  
+      <form action="/viewAttendance" method="GET">
+        <input type="submit" value="View Attendance List">
+      </form>
+  
+      <form action="/logout" method="GET">
+        <input type="submit" value="Logout">
+      </form>
+    </div>
+  
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('alert')) {
+        const alertType = urlParams.get('alert');
+        if (alertType === 'true') {
+          alert('The selected date must be today or before.');
+        } else if (alertType === 'exists') {
+          alert('Attendance has already been marked for this date.');
+        } else if (alertType === 'noattendance') {
+          alert('No attendance has been marked yet.');
+        }
+        // Remove the alert parameter from the URL
+        const url = new URL(window.location);
+        url.searchParams.delete('alert');
+        window.history.replaceState({}, document.title, url);
+      }
+    </script>
+  </body>
+  </html>
+  
